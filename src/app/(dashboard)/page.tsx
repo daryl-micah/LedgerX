@@ -1,3 +1,3 @@
 export default function Home() {
-  return <Button>Test</Button>;
+  return <p>This is an authenticated route</p>;
 }
