@@ -20,7 +20,7 @@ export default function Page() {
         </ClerkLoaded>
       </div>
       <div className="h-full bg-blue-400 hidden lg:flex items-center justify-items-center">
-        <Image src="/next.svg" alt="Logo" height={100} width={100} />
+        <Image src="/logo.svg" alt="Logo" height={100} width={100} />
       </div>
     </div>
   );
