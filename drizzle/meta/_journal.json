@@ -15,6 +15,13 @@
       "when": 1716581173639,
       "tag": "0001_legal_morph",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1718349558163,
+      "tag": "0002_redundant_zombie",
+      "breakpoints": true
     }
   ]
 }
