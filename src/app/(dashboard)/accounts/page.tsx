@@ -8,14 +8,14 @@ import { Loader2, Plus } from "lucide-react";
 import { columns } from "./columns";
 
 import { useNewAccount } from "@/features/accounts/hooks/use-new-account";
-import { useGetAccounts } from "@/features/accounts/api/use-get-accounts";
+import { getAccounts } from "@/features/accounts/api/get-accounts";
 import { Skeleton } from "@/components/ui/skeleton";
 import { usebBulkDeleteAccounts } from "@/features/accounts/api/use-bulk-delete";
 
 const AccountsPage = () => {
   const newAccount = useNewAccount();
   const deleteAccounts = usebBulkDeleteAccounts();
-  const accountsQuery = useGetAccounts();
+  const accountsQuery = getAccounts();
   const accounts = accountsQuery.data || [];
 
   const isDisabled = accountsQuery.isLoading || deleteAccounts.isPending;
