@@ -9,14 +9,14 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Edit2, MoreHorizontal } from "lucide-react";
 
-import { useOpenAccount } from "@/features/accounts/hooks/use-open-account";
+import { useOpenCategory } from "@/features/categories/hooks/use-open-category";
 
 type Props = {
   id: string;
 };
 
 export const Actions = ({ id }: Props) => {
-  const { onOpen } = useOpenAccount();
+  const { onOpen } = useOpenCategory();
 
   return (
     <>

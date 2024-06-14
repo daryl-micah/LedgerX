@@ -10,7 +10,7 @@ import { columns } from "./columns";
 import { useNewAccount } from "@/features/accounts/hooks/use-new-account";
 import { getAccounts } from "@/features/accounts/api/get-accounts";
 import { Skeleton } from "@/components/ui/skeleton";
-import { usebBulkDeleteAccounts } from "@/features/accounts/api/use-bulk-delete";
+import { usebBulkDeleteAccounts } from "@/features/accounts/api/use-bulk-delete-accounts";
 
 const AccountsPage = () => {
   const newAccount = useNewAccount();
@@ -48,7 +48,7 @@ const AccountsPage = () => {
           </Button>
         </CardHeader>
         <DataTable
-          filterKey="email"
+          filterKey="name"
           columns={columns}
           data={accounts}
           onDelete={(row) => {
