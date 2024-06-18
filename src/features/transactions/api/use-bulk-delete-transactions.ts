@@ -10,7 +10,7 @@ type RequestType = InferRequestType<
   (typeof client.api.transactions)["bulk-delete"]["$post"]
 >["json"];
 
-export const usebBulkDeleteAccounts = () => {
+export const useBulkDeleteTransactions = () => {
   const queryClient = useQueryClient();
 
   const mutation = useMutation<ResponseType, Error, RequestType>({
@@ -22,7 +22,7 @@ export const usebBulkDeleteAccounts = () => {
     },
     onSuccess: () => {
       toast.success("Transactions Deleted.");
-      queryClient.invalidateQueries({ queryKey: ["accounts"] });
+      queryClient.invalidateQueries({ queryKey: ["transactions"] });
       //ToDo: Also invalidate memory
     },
     onError: () => {
