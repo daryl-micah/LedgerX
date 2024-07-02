@@ -5,9 +5,9 @@ import { useTransaction } from "../api/use-transaction";
 import { useEditTransaction } from "../api/use-edit-transaction";
 import { useDeleteTransaction } from "../api/use-delete-transaction";
 import { TransactionForm } from "./transaction-form";
-import { getCategories } from "@/features/categories/api/get-categories";
+import { useGetCategories } from "@/features/categories/api/use-get-categories";
 import { useCreateCategory } from "@/features/categories/api/use-create-category";
-import { getAccounts } from "@/features/accounts/api/get-accounts";
+import { useGetAccounts } from "@/features/accounts/api/use-get-accounts";
 import { useCreateAccount } from "@/features/accounts/api/use-create-account";
 
 import { z } from "zod";
@@ -38,7 +38,7 @@ export const EditTransactionSheet = () => {
   const editMutation = useEditTransaction(id);
   const deleteMutation = useDeleteTransaction(id);
 
-  const categoryQuery = getCategories();
+  const categoryQuery = useGetCategories();
   const categoryMutation = useCreateCategory();
   const onCreateCategory = (name: string) =>
     categoryMutation.mutate({
@@ -49,7 +49,7 @@ export const EditTransactionSheet = () => {
     value: category.id,
   }));
 
-  const accountQuery = getAccounts();
+  const accountQuery = useGetAccounts();
   const accountMutation = useCreateAccount();
   const onCreateAccount = (name: string) =>
     accountMutation.mutate({

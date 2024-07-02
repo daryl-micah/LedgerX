@@ -9,14 +9,15 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { columns } from "./columns";
 
 import { useNewTransaction } from "@/features/transactions/hooks/use-new-transactions";
-import { getTransactions } from "@/features/transactions/api/get-transactions";
+import { useGetTransactions } from "@/features/transactions/api/use-get-transactions";
 import { useBulkDeleteTransactions } from "@/features/transactions/api/use-bulk-delete-transactions";
 
 const TransactionsPage = () => {
   const newTransaction = useNewTransaction();
   const deleteTransactions = useBulkDeleteTransactions();
-  const transactionsQuery = getTransactions();
+  const transactionsQuery = useGetTransactions();
   const transactions = transactionsQuery.data || [];
+  useGetTransactions;
 
   const isDisabled =
     transactionsQuery.isLoading || deleteTransactions.isPending;

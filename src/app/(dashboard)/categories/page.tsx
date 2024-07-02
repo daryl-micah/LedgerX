@@ -8,14 +8,14 @@ import { Loader2, Plus } from "lucide-react";
 import { columns } from "./columns";
 
 import { useNewCategory } from "@/features/categories/hooks/use-new-category";
-import { getCategories } from "@/features/categories/api/get-categories";
+import { useGetCategories } from "@/features/categories/api/use-get-categories";
 import { Skeleton } from "@/components/ui/skeleton";
-import { usebBulkDeleteCategories } from "@/features/categories/api/use-bulk-delete-categories";
+import { useBulkDeleteCategories } from "@/features/categories/api/use-bulk-delete-categories";
 
 const CategoriesPage = () => {
   const newCategory = useNewCategory();
-  const deleteCategories = usebBulkDeleteCategories();
-  const categoriesQuery = getCategories();
+  const deleteCategories = useBulkDeleteCategories();
+  const categoriesQuery = useGetCategories();
   const categories = categoriesQuery.data || [];
 
   const isDisabled = categoriesQuery.isLoading || deleteCategories.isPending;

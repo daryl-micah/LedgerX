@@ -4,9 +4,9 @@ import { useNewTransaction } from "../hooks/use-new-transactions";
 import { TransactionForm } from "@/features/transactions/components/transaction-form";
 
 import { useCreateCategory } from "@/features/categories/api/use-create-category";
-import { getCategories } from "@/features/categories/api/get-categories";
+import { useGetCategories } from "@/features/categories/api/use-get-categories";
 
-import { getAccounts } from "@/features/accounts/api/get-accounts";
+import { useGetAccounts } from "@/features/accounts/api/use-get-accounts";
 import { useCreateAccount } from "@/features/accounts/api/use-create-account";
 
 import { z } from "zod";
@@ -31,7 +31,7 @@ export const NewTransactionSheet = () => {
 
   const createMutation = useCreateTransaction();
 
-  const categoryQuery = getCategories();
+  const categoryQuery = useGetCategories();
   const categoryMutation = useCreateCategory();
   const onCreateCategory = (name: string) =>
     categoryMutation.mutate({
@@ -42,7 +42,7 @@ export const NewTransactionSheet = () => {
     value: category.id,
   }));
 
-  const accountQuery = getAccounts();
+  const accountQuery = useGetAccounts();
   const accountMutation = useCreateAccount();
   const onCreateAccount = (name: string) =>
     accountMutation.mutate({
