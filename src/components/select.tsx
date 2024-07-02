@@ -33,7 +33,7 @@ export const Select = ({
     <CreateableSelect
       placeholder={placeholder}
       className="text-sm h-10"
-      style={{
+      styles={{
         control: (base) => ({
           ...base,
           borderColor: "#e2e8f0",
@@ -46,7 +46,7 @@ export const Select = ({
       onChange={onSelect}
       options={options}
       onCreateOption={onCreate}
-      disabled={disabled}
+      isDisabled={disabled}
     />
   );
 };
