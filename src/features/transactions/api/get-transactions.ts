@@ -1,4 +1,5 @@
 import { client } from "@/lib/hono";
+import { convertAmountFrom } from "@/lib/utils";
 import { useQuery } from "@tanstack/react-query";
 import { useSearchParams } from "next/navigation";
 
@@ -20,7 +21,10 @@ export const getTransactions = () => {
       }
 
       const { data } = await response.json();
-      return data;
+      return data.map((transaction) => ({
+        ...transaction,
+        amount: convertAmountFrom(transaction.amount),
+      }));
     },
   });
 

@@ -31,7 +31,7 @@ export const EditTransactionSheet = () => {
 
   const [ConfirmDialog, confirm] = useConfirm(
     "Are you sure?",
-    "You are about to delete this account!"
+    "You are about to delete this transaction!"
   );
 
   const transactionQuery = useTransaction(id);
