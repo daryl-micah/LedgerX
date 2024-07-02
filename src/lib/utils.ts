@@ -14,10 +14,9 @@ export function convertAmountTo(amount: number) {
 }
 
 export function formatCurrency(value: number) {
-  const finalValue = convertAmountFrom(value);
   return Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "INR",
     minimumFractionDigits: 2,
-  }).format(finalValue);
+  }).format(value);
 }

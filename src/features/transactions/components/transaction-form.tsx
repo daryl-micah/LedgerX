@@ -198,7 +198,7 @@ export const TransactionForm = ({
             className="w-full"
           >
             <Trash className="size-4 mr-2" />
-            Delete Account
+            Delete transaction
           </Button>
         )}
       </form>
