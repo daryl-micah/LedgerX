@@ -1,5 +1,5 @@
 "use client";
-
+import { useOpenTransaction } from "@/features/transactions/hooks/use-open-transaction";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -9,19 +9,17 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Edit2, MoreHorizontal } from "lucide-react";
 
-import { useOpenAccount } from "@/features/accounts/hooks/use-open-account";
-
 type Props = {
   id: string;
 };
 
 export const Actions = ({ id }: Props) => {
-  const { onOpen } = useOpenAccount();
+  const { onOpen } = useOpenTransaction();
 
   return (
     <>
       <DropdownMenu>
-        <DropdownMenuTrigger as child>
+        <DropdownMenuTrigger>
           <Button variant={"ghost"} className="size-8 p-0">
             <MoreHorizontal />
           </Button>
