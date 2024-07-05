@@ -13,6 +13,7 @@ import { useGetTransactions } from "@/features/transactions/api/use-get-transact
 import { useBulkDeleteTransactions } from "@/features/transactions/api/use-bulk-delete-transactions";
 import { useState } from "react";
 import { UploadButton } from "./upload-button";
+import { ImportCard } from "./import-card";
 
 enum VARIANTS {
   LIST = "LIST",
@@ -29,6 +30,7 @@ const TransactionsPage = () => {
   const [importResults, setImportResults] = useState(INITIAL_IMPORT_RESULTS);
 
   const onUpload = (results: typeof INITIAL_IMPORT_RESULTS) => {
+    console.log({ results });
     setImportResults(results);
     setVariant(VARIANTS.IMPORT);
   };
@@ -67,7 +69,11 @@ const TransactionsPage = () => {
   if (variant === VARIANTS.IMPORT) {
     return (
       <>
-        <div>This is import screen</div>
+        <ImportCard
+          data={importResults.data}
+          onCancel={onCancelImport}
+          onSubmit={() => {}}
+        />
       </>
     );
   }
@@ -91,16 +97,18 @@ const TransactionsPage = () => {
             <UploadButton onUpload={onUpload} />
           </div>
         </CardHeader>
-        <DataTable
-          filterKey="payee"
-          columns={columns}
-          data={transactions}
-          onDelete={(row) => {
-            const ids = row.map((r) => r.original.id);
-            deleteTransactions.mutate({ ids });
-          }}
-          disabled={isDisabled}
-        />
+        <CardContent>
+          <DataTable
+            filterKey="payee"
+            columns={columns}
+            data={transactions}
+            onDelete={(row) => {
+              const ids = row.map((r) => r.original.id);
+              deleteTransactions.mutate({ ids });
+            }}
+            disabled={isDisabled}
+          />
+        </CardContent>
       </Card>
     </div>
   );
