@@ -5,8 +5,8 @@ import { ImportTable } from "./import-table";
 import { convertAmountTo } from "@/lib/utils";
 import { format, parse } from "date-fns";
 
-const dateFormat = "dd-MMMM-YYYY";
-const outputFormat = "dd-MM-YYYY";
+const dateFormat = "dd MMM, yyyy";
+const outputFormat = "dd MMM, yyyy";
 
 const requiredOptions = ["amount", "date", "payee"];
 
