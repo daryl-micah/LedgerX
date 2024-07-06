@@ -3,7 +3,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useState } from "react";
 import { ImportTable } from "./import-table";
 import { convertAmountTo } from "@/lib/utils";
-import { format, isValid, parse } from "date-fns";
+import { format, parse, isValid } from "date-fns";
+import { Item } from "@radix-ui/react-dropdown-menu";
 
 const dateFormat = "dd MMM, yyyy"; // Adjusted date format
 const outputFormat = "dd MMM, yyyy"; // Adjusted output format
@@ -83,9 +84,12 @@ export const ImportCard = ({ data, onCancel, onSubmit }: Props) => {
     });
 
     const formattedData = arrayofData.map((item) => {
-      const amount = item.debit
-        ? -parseFloat(item.debit)
-        : parseFloat(item.credit);
+      let amount = 0;
+      if (item.debit && !isNaN(parseFloat(item.debit))) {
+        amount = -parseFloat(item.debit);
+      } else if (item.credit && !isNaN(parseFloat(item.credit))) {
+        amount = parseFloat(item.credit);
+      }
 
       let parsedDate = parse(item.date, dateFormat, new Date());
       if (!isValid(parsedDate)) {
