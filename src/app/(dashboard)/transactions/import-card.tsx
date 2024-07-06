@@ -9,7 +9,7 @@ import { Item } from "@radix-ui/react-dropdown-menu";
 const dateFormat = "dd MMM, yyyy"; // Adjusted date format
 const outputFormat = "dd MMM, yyyy"; // Adjusted output format
 
-const requiredOptions = ["date", "payee", "debit", "credit"];
+const requiredOptions = ["date", "payee", "amount"];
 
 interface SelectedColumnState {
   [key: string]: string | null;
@@ -84,12 +84,12 @@ export const ImportCard = ({ data, onCancel, onSubmit }: Props) => {
     });
 
     const formattedData = arrayofData.map((item) => {
-      let amount = 0;
-      if (item.debit && !isNaN(parseFloat(item.debit))) {
-        amount = -parseFloat(item.debit);
-      } else if (item.credit && !isNaN(parseFloat(item.credit))) {
-        amount = parseFloat(item.credit);
-      }
+      // let amount = 0;
+      // if (item.debit && !isNaN(parseFloat(item.debit))) {
+      //   amount = -parseFloat(item.debit);
+      // } else if (item.credit && !isNaN(parseFloat(item.credit))) {
+      //   amount = parseFloat(item.credit);
+      // }
 
       let parsedDate = parse(item.date, dateFormat, new Date());
       if (!isValid(parsedDate)) {
@@ -98,7 +98,7 @@ export const ImportCard = ({ data, onCancel, onSubmit }: Props) => {
 
       return {
         ...item,
-        amount: convertAmountTo(amount),
+        amount: convertAmountTo(item.amount),
         date: format(parsedDate, outputFormat),
       };
     });
