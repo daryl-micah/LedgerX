@@ -4,9 +4,8 @@ import { useState } from "react";
 import { ImportTable } from "./import-table";
 import { convertAmountTo } from "@/lib/utils";
 import { format, parse, isValid } from "date-fns";
-import { Item } from "@radix-ui/react-dropdown-menu";
 
-const dateFormat = "dd MMM, yyyy"; // Adjusted date format
+const dateFormat = "dd MMM yyyy"; // Adjusted date format
 const outputFormat = "dd MMM, yyyy"; // Adjusted output format
 
 const requiredOptions = ["date", "payee", "amount"];
@@ -84,13 +83,7 @@ export const ImportCard = ({ data, onCancel, onSubmit }: Props) => {
     });
 
     const formattedData = arrayofData.map((item) => {
-      // let amount = 0;
-      // if (item.debit && !isNaN(parseFloat(item.debit))) {
-      //   amount = -parseFloat(item.debit);
-      // } else if (item.credit && !isNaN(parseFloat(item.credit))) {
-      //   amount = parseFloat(item.credit);
-      // }
-
+      const amount = item.amount;
       let parsedDate = parse(item.date, dateFormat, new Date());
       if (!isValid(parsedDate)) {
         parsedDate = new Date(); // Handle invalid date
@@ -98,7 +91,7 @@ export const ImportCard = ({ data, onCancel, onSubmit }: Props) => {
 
       return {
         ...item,
-        amount: convertAmountTo(item.amount),
+        amount: convertAmountTo(amount),
         date: format(parsedDate, outputFormat),
       };
     });
