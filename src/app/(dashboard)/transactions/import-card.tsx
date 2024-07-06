@@ -3,12 +3,12 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useState } from "react";
 import { ImportTable } from "./import-table";
 import { convertAmountTo } from "@/lib/utils";
-import { format, parse } from "date-fns";
+import { format, isValid, parse } from "date-fns";
 
-const dateFormat = "dd-MMM-YYYY";
-const outputFormat = "dd-MM-YYYY";
+const dateFormat = "dd MMM, yyyy"; // Adjusted date format
+const outputFormat = "dd MMM, yyyy"; // Adjusted output format
 
-const requiredOptions = ["amount", "date", "payee"];
+const requiredOptions = ["date", "payee", "debit", "credit"];
 
 interface SelectedColumnState {
   [key: string]: string | null;
@@ -82,11 +82,22 @@ export const ImportCard = ({ data, onCancel, onSubmit }: Props) => {
       }, {});
     });
 
-    const formattedData = arrayofData.map((item) => ({
-      ...item,
-      amount: convertAmountTo(parseFloat(item.amount)),
-      date: format(parse(item.date, dateFormat, new Date()), outputFormat),
-    }));
+    const formattedData = arrayofData.map((item) => {
+      const amount = item.debit
+        ? -parseFloat(item.debit)
+        : parseFloat(item.credit);
+
+      let parsedDate = parse(item.date, dateFormat, new Date());
+      if (!isValid(parsedDate)) {
+        parsedDate = new Date(); // Handle invalid date
+      }
+
+      return {
+        ...item,
+        amount: convertAmountTo(amount),
+        date: format(parsedDate, outputFormat),
+      };
+    });
 
     onSubmit(formattedData);
   };

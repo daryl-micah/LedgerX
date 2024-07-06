@@ -72,7 +72,7 @@ const TransactionsPage = () => {
         <ImportCard
           data={importResults.data}
           onCancel={onCancelImport}
-          onSubmit={() => {}}
+          onSubmit={onSubmit}
         />
       </>
     );
