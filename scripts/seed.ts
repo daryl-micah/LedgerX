@@ -33,18 +33,18 @@ import { convertAmountTo } from "@/lib/utils";
 const generateRandomAmount = (category: typeof categories.$inferInsert) => {
   switch (category.name) {
     case "Rent":
-      return Math.random() * 400 + 90;
+      return Math.random() * 4000 + 90;
     case "Food":
-      return Math.random() * 30 + 10;
+      return Math.random() * 300 + 10;
     case "Transport":
     case "Health":
-      return Math.random() * 50 + 15;
+      return Math.random() * 500 + 15;
     case "Entertainment":
     case "Clothing":
     case "Miscellaneous":
-      return Math.random() * 100 + 20;
+      return Math.random() * 1000 + 20;
     default:
-      return Math.random() * 50 + 10;
+      return Math.random() * 500 + 10;
   }
 };
 
