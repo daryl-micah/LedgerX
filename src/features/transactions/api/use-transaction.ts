@@ -1,4 +1,5 @@
 import { client } from "@/lib/hono";
+import { convertAmountFrom } from "@/lib/utils";
 import { useQuery } from "@tanstack/react-query";
 
 export const useTransaction = (id?: string) => {
@@ -15,7 +16,10 @@ export const useTransaction = (id?: string) => {
       }
 
       const { data } = await response.json();
-      return data;
+      return {
+        ...data,
+        amount: convertAmountFrom(data.amount),
+      };
     },
   });
 
