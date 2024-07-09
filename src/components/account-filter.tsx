@@ -17,7 +17,7 @@ export const AccountFilter = () => {
   const pathname = usePathname();
 
   const params = useSearchParams();
-  const accountId = params.get("accountId") || "all";
+  const accountId = params.get("accountId") || "";
   const from = params.get("from") || "";
   const to = params.get("to") || "";
 
