@@ -133,7 +133,7 @@ const app = new Hono().get(
         income: sql`sum(case when ${transactions.amount} >= 0 then 
         ${transactions.amount} else 0 end)`.mapWith(Number),
         expenses: sql`sum(case when ${transactions.amount} < 0 then 
-      ${transactions.amount} else 0 end)`.mapWith(Number),
+      abs(${transactions.amount}) else 0 end)`.mapWith(Number),
       })
       .from(transactions)
       .innerJoin(accounts, eq(accounts.id, transactions.accountId))
