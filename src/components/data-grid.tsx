@@ -6,6 +6,7 @@ import { useSearchParams } from "next/navigation";
 import { DataCard } from "./data-card";
 
 import { FaPiggyBank } from "react-icons/fa";
+import { FaArrowTrendUp, FaArrowTrendDown } from "react-icons/fa6";
 
 export const DataGrid = () => {
   const { data } = useGetSummary();
@@ -22,6 +23,20 @@ export const DataGrid = () => {
         value={data?.remainingAmount}
         percentageChange={data?.remainingChange}
         icon={FaPiggyBank}
+        dateRange={dateRangeLabel}
+      />
+      <DataCard
+        title="Income"
+        value={data?.incomeAmount}
+        percentageChange={data?.incomeChange}
+        icon={FaArrowTrendUp}
+        dateRange={dateRangeLabel}
+      />
+      <DataCard
+        title="Expenses"
+        value={data?.expensesAmount}
+        percentageChange={data?.expensesChange}
+        icon={FaArrowTrendDown}
         dateRange={dateRangeLabel}
       />
     </div>
