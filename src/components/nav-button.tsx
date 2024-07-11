@@ -15,7 +15,7 @@ export const NavButton = ({ href, label, isActive }: Props) => {
       size="sm"
       variant="outline"
       className={cn(
-        "w-full lg:w-auto font-normal border-none focus-visible:ring-offset-0 outline-none",
+        "w-full lg:w-auto font-normal border-none focus-visible:ring-offset-0 ring-offset-0 outline-none",
         isActive ? "bg-white/10 text-white" : "bg-transparent"
       )}
     >
