@@ -1,6 +1,5 @@
 import { SignUp, ClerkLoaded, ClerkLoading } from "@clerk/nextjs";
 import { Loader2 } from "lucide-react";
-import Image from "next/image";
 
 export default function Page() {
   return (
@@ -9,7 +8,7 @@ export default function Page() {
         <div className="text-center space-y-4 pt-16">
           <h1 className="font-bold text-3xl text-#2E2A47">Welcome!</h1>
           <p className="text-base text-[7E8CA0]">
-            Create an account to access your dashboard.
+            Create an account to get started
           </p>
         </div>
         <ClerkLoading>
@@ -18,9 +17,6 @@ export default function Page() {
         <ClerkLoaded>
           <SignUp path="/sign-up" />
         </ClerkLoaded>
-      </div>
-      <div className="h-full bg-blue-400 hidden lg:flex items-center justify-items-center">
-        <Image src="/logo.svg" alt="Logo" height={100} width={100} />
       </div>
     </div>
   );
