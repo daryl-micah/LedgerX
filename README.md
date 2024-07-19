@@ -1,6 +1,10 @@
 # LedgerX
 > A financial dashboard to visualize and manage your finances.
 
+## Tech Stack
+*Language: Typescript
+*Frameworks: Next.js, React.js, Hono🔥, TailwindCSS, Tanstack Query
+
 ## To Run Locally
 
 1. Clone the project
