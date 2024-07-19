@@ -2,8 +2,9 @@
 > A financial dashboard to visualize and manage your finances.
 
 ## Tech Stack
-- Language: Typescript
+- Language: Typescript, Javascript
 - Frameworks: Next.js, React.js, Hono🔥, TailwindCSS, Tanstack Query
+- Database: postgreSQL [NeonDB](https://www.neon.tech)
 
 ## To Run Locally
 
@@ -21,7 +22,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 > [!IMPORTANT]
 Create a .env.local file before proceeding for the database and Clerk authentication to work correctly.
 >> Database used: NeonDB postgreSQL.<br/>
->> Authentication is done using Clerk. Sign up, create an application & add API keys to .env file.<br/>
+>> Authentication is done using [Clerk](https://www.clerk.com). Sign up, create an application & add API keys to .env file.<br/>
 >> Refer the .env.example file.<br/>
 
 ### Features to be imporved/added ✍️
