@@ -14,11 +14,11 @@
    
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-### > [!IMPORTANT]
+> [!IMPORTANT]
 Create a .env.local file before proceeding for the database and Clerk authentication to work correctly.
->> Database used: NeonDB postgreSQL.
->>Authentication is done using Clerk. Sign up, create an application & add API keys to .env file. 
->>Refer the .env.example file.
+>> Database used: NeonDB postgreSQL.<br/>
+>> Authentication is done using Clerk. Sign up, create an application & add API keys to .env file.<br/>
+>> Refer the .env.example file.<br/>
 
 ### Features to be imporved/added ✍️
 1. Import csv function 🟡
