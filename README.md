@@ -4,7 +4,7 @@
 ## Tech Stack
 - Language: Typescript, Javascript
 - Frameworks: Next.js, React.js, Hono🔥, TailwindCSS, Tanstack Query
-- Database: postgreSQL [NeonDB](https://www.neon.tech)
+- Database: Postgres [NeonDB](https://www.neon.tech)
 
 ## To Run Locally
 
