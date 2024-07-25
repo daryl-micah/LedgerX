@@ -19,7 +19,7 @@
    
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-> [!IMPORTANT]
+**[!IMPORTANT]**
 Create a .env.local file before proceeding for the database and Clerk authentication to work correctly.
 >> Database used: NeonDB postgreSQL.<br/>
 >> Authentication is done using [Clerk](https://www.clerk.com). Sign up, create an application & add API keys to .env file.<br/>
