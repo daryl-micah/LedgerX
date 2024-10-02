@@ -25,6 +25,6 @@ Create a .env.local file before proceeding for the database and Clerk authentica
 >> Authentication is done using [Clerk](https://www.clerk.com). Sign up, create an application & add API keys to .env file.<br/>
 >> Refer the **.env.example file.** <br/>
 
-### Features to be imporved/added ✍️
+### Features to be improved/added ✍️
 1. Import csv function 🟡
 2. Bank account connections 🔴
